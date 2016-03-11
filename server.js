@@ -3,6 +3,23 @@ var mongoose = require('mongoose');
 var Company = require( './app/models/company' );
 var app = express();
 
+// set up ======================================================================
+var express = require('express');
+var mongoose = require('mongoose');
+var bodyParser = require('body-parser');
+var passport = require('passport');
+
+var Company = require( './app/models/company' );
+var User = require( './app/models/user' );
+var ConfigPassport = require( './config/passport' );
+
+// configuration ===============================================================
+var app = express();
+
+app.use(bodyParser.json()); // support json encoded bodies
+app.use(bodyParser.text());
+app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
+
 var port = process.env.PORT || 4568;
 var dbURI = 'mongodb://localhost/jobhunt';
 
@@ -12,6 +29,11 @@ mongoose.connect( dbURI );
 // Serve index.html file (detected automatically in specified directory)
 app.use( express.static( __dirname + '/public') );
 
+//initialize passport
+app.use( passport.initialize() );
+
+
+// listen (start app with node server.js) ======================================
 app.listen( port, function () {
   console.log( 'server listening on port ' + port + '...\n' );
 });
@@ -39,24 +61,8 @@ mongoose.connection.on( 'connected', function () {
   }
 });
 
-
-
-// handle this elsewhere...
-
-app.get( '/api/companies', function( req, res ) {
-
-  Company.find( {}, function(error, data) {
-
-    if ( error ) {
-      res.json(error);
-    } else if ( data === null ) {
-      res.json('Empty data');
-    } else {
-      res.json(data);
-    }      
-  });
-
-});
+// routes ======================================================================
+require('./app/routes.js')(app);
 
 
 

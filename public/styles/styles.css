@@ -4,16 +4,42 @@
 
 html {
   font-family: sans-serif;
+  overflow-x: hidden; /* prevents horiz scrollbar when using vh for full-screen image */
+}
+
+.menu-bar {
+  height: 10vh;
+  line-height: 10vh; /* vert. center text hack */
+  padding-left: 3vw;
+  padding-right: 4vw;
+  background-color: rgba(0,0,255,0.6);
+  color: white;
+  text-transform: uppercase;
+}
+
+.branding {
+  font-size: 4vh;
+  font-weight: bold;
+  letter-spacing: 0.6vw;
 }
 
 .log-in-out {
   float: right;
-  margin-right: 32px;
-  margin-top: 20px;
-  color: rgba(255,255,255,0.6);
-  text-transform: uppercase;
-  font-size: 16px;
-  letter-spacing: 1.25px;
+  font-size: 3vh;
+  letter-spacing: 0.25vw;
+}
+
+.log-in-out a {
+  color: rgba(255,255,255,0.9);
+}
+
+.log-in-out a:hover {
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+}
+.log-in-out a:focus {
+  text-decoration: none;
 }
 
 .login {
@@ -23,119 +49,241 @@ html {
   display: none;
 }
 
-header {
-  background-color: blue;
-  color: rgba(255,255,255,0.6);
-  height: 400px;
-}
-
-header.narrow-header {
-  height: auto;
-  padding: 12px;
-}
-
-.title-block {
-  text-align: center;
-}
-
-.main-title {
-  margin-top: 80px;
-  color: lightblue;
-  text-transform: uppercase;
-  font-size: 42px;
-  font-weight: bold;
-  letter-spacing: 1.25px;
-}
-
-.narrow-header .main-title {
-  margin-top: 12px;
-  font-size: 24px;
-}
-
 
 /********************************
      Landing Page Elements
 *********************************/
 
-/* enable columns */
-.primary-header-row {
-  margin-left: 0;
-  margin-right: 0;
+.image-area {
+  background-image: url("../images/splash.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center 60%; /* offset, for image-specific focal point */
+  height: 90vh; /* combined with menu = 100% screen height */
 }
 
-.title-block-column {
+.left-column {
+  /*background-color: red;*/ /* for layout testing */
 }
 
-.description-column {
-  padding-right: 0;
-  padding-left: 0;
+.right-column {
+  /*background-color: green;*/ /* for layout testing */
 }
 
-.sub-title {
+.tagline {
+  color: indigo;
   font-style: italic;
   font-weight: bold;
+  font-size: 20px;
   letter-spacing: 1.25px;
+  width: 300px; /* req'd, to horiz. center */
+  margin: 60px auto 0 auto;
+}
+
+.tagline .line2 {
+  margin-left: 32px;
 }
 
 .btn {
-  margin-top: 80px;
-  color: indigo;
-  font-size: 24px;
+  margin: 250px 60px 0 0;
+  float: right;
+  font-size: 20px;
   font-weight: bold;
   letter-spacing: 1.25px;
-  padding: 10px 50px;
+  padding-left: 32px;
+  padding-right: 32px;
 }
 
 .description {
-  /*background-color: rgba(0,0,0,0.5);*/
-  margin-top: 40px;
+  color: indigo;
+  margin: 32px auto 0 auto;
   width: 200px;
   font-size: 14px;
-  border: 1px solid white;
+  text-align: center;
+  border: 1px solid;
   border-radius: 6px;
   padding: 12px;
 }
 
-.description > span {
-}
-
 .description > ul {
+  text-align: left;
   padding: 0 0 0 20px;
-  margin: 5px 0;
-  color: white;
+  margin: 10px 0;
 }
 
-.promo-band {
+.promo-strip {
   min-height: 360px;
-  margin: 42px 0;
-  padding: 12px;
+  margin-top: 60px;
+  padding: 0 24px;
+}
+
+.promo-block {
+  min-height: 360px;
+  padding: 16px;
+}
+
+.promo-block.visual {
+  background-color: rgba(0,0,255,0.4);
+  color: white;
+  border-radius: 5px;
+}
+
+.promo-block.other {
+  color: indigo;
 }
 
 .video-frame {
   background-color: black;
   border-radius: 5px;
-  width: 380px;
-  height: 280px;
-  padding: 22px 10px;
+  padding: 12px 6px;
 }
 
-.demo {
-  background-color: lightblue;
-}
-
-.subject2 {
-  background-color: lightgreen;
-}
-
-.subject3 {
-  background-color: lightblue;
-}
-
-.subject4 {
-  background-color: lightgreen;
+iframe {
+  width: 100%;
+  min-height: 230px;
 }
 
 
 /********************************
-  Some Other Page Elements...
+  Individual Company Styles
 *********************************/
+
+.company-name {
+  text-align: center;
+}
+
+.stage-bar {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.taskpanel {
+  margin-right: 12px;
+  border: solid 1px black;
+}
+
+.taskbar {
+  background-color: lightgray;
+}
+
+.buttonframe {
+  padding: 5px;
+  float: left;
+}
+
+/* show button 'selected' on mouse-over or click */
+.buttonframe:hover {
+  background-color: rgba(0,0,255,0.4);
+  text-decoration: none;
+}
+.buttonframe:focus {
+  background-color: rgba(0,0,255,0.6);
+  text-decoration: none;
+}
+
+.taskbutton {
+  background-color: rgba(255,255,255, 0.65);
+  color: rgba(0,0,255,0.5);
+  width: 100px;
+  height: 100px;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 48px;
+}
+
+.taskbutton .caption {
+  color: rgba(0,0,255,0.6);
+  font-size: 14px;
+  transform: translate( 0%,10%);
+}
+
+.task-edit-area {
+  position: relative;
+}
+
+.task-edit-area header {
+  text-align: center;
+  font-size: 18px;
+}
+
+.task-edit-area header > .title {
+  margin-top: 20px;
+  text-transform: uppercase;
+  min-height: 800px;
+}
+
+.taskdoc-link {
+  position: absolute;
+  top: 0;
+  right: 10%;
+  text-decoration: underline;
+}
+
+.taskdoc-container {
+  position: absolute;
+  overflow-x: scroll;
+  top: 40px;
+  width: 100%;
+}
+
+.task-edit-area iframe {
+  height: 1000px;
+  width: 100%;
+}
+
+.loginReg-background {
+  background: url("../images/loginBackground.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center 60%; /* offset, for image-specific focal point */
+  height: 90vh; /* combined with menu = 100% screen height */
+}
+
+.loginRegBox {
+  width: 320px;
+  padding: 20px;
+  margin: 0 auto;
+  background-color: rgba(0, 0, 0, .3);
+  border-radius: 10px;
+  top: 18%;
+  position: relative;
+}
+
+.loginRegBox input {
+  padding: 11px;
+  font-size: 14px;
+  display: block;
+  margin: 7px auto;
+  border: 1px solid #7D7D7D;
+  border-radius: 4px;
+  width: 250px;
+}
+
+
+.loginError {
+    border: 1px solid #FFA1A1;
+    background-color: rgba(255, 184, 184, 0.8);
+    color: #2D2D2D;
+    padding: 5px;
+    text-align: center;
+    font-family: Arial;
+    box-shadow: 0px 0px 15px 3px #FF2828;
+    border-radius: 2px;
+}
+ 
+.regAndLog {
+  text-decoration-color: white;
+  width: 250px;
+  height: 35px;
+  background-color: #428BCA;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+}
+
+.fontColor {
+  color: white;
+  font-family: Arial;
+}
+
