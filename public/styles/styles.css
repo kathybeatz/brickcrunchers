@@ -453,10 +453,6 @@ body {
   color: gray;
 }
 
-/*************************************
-*************************************/
-
-
 .loginReg-background {
   background: url("../images/loginBackground.jpg");
   background-size: cover;
@@ -465,15 +461,14 @@ body {
   height: 90vh; /* combined with menu = 100% screen height */
 }
 
-.loginRegBox {  
+.loginRegBox {
   width: 320px;
   padding: 20px;
   margin: 0 auto;
   background-color: rgba(0, 0, 0, .3);
   border-radius: 10px;
   top: 18%;
-  position: relative;x {
-
+  position: relative;
 }
 
 .loginRegBox input {
