@@ -24,28 +24,9 @@ module.exports = function (app) {
       });
   });
 
-  //THIS GETS ONE COMPANY
-  app.get('/api/:user/companies/:company', function(req, res) {
-    var id = new ObjectID(req.params.user);
-    var company = req.params.company;
-    console.log(company);
-    User
-      .findOne({ _id: id })
-      .exec(function(error, user) {
-        if ( error ) {
-          res.json(error);
-        } else {
-          for (var i = 0; i < user.companies.length; i++) {
-            if (user.companies[i].name === company) {
-              res.json(user.companies[i]);
-            }
-          }
-        }      
-      });
-  });
-
   //THIS ADDS A COMPANY TO A USER
   app.post( '/api/:user/companies', function(req, res) {
+    console.log(req.body);
     var id = new ObjectID(req.params.user);
     var newCompany = Company(req.body);
     User
@@ -83,7 +64,7 @@ module.exports = function (app) {
   app.post('/api/:user/companies/:company/phone', function(req, res) {
     var id = new ObjectID(req.params.user);
     var company = new ObjectID(req.params.company);
-    console.log(req.body);
+    console.log('------- dates', req.body);
     User
       .findOneAndUpdate(
         {'_id': id, 'companies._id': company},
@@ -178,6 +159,5 @@ module.exports = function (app) {
       }
     })(req, res, next);
   });
-
 
 };
