@@ -152,14 +152,18 @@ body {
 }
 
 .video-frame {
-  background-color: black;
+  background-color: #BBBBBB;
   border-radius: 5px;
-  padding: 12px 6px;
+  padding: 6px 6px;
 }
 
-iframe {
+.video-frame img {
   width: 100%;
   min-height: 230px;
+}
+
+.footer {
+  min-height: 60px;
 }
 
 
@@ -451,14 +455,15 @@ iframe {
   height: 90vh; /* combined with menu = 100% screen height */
 }
 
-.loginRegBox {
+.loginRegBox {  
   width: 320px;
   padding: 20px;
   margin: 0 auto;
   background-color: rgba(0, 0, 0, .3);
   border-radius: 10px;
   top: 18%;
-  position: relative;
+  position: relative;x {
+
 }
 
 .loginRegBox input {
